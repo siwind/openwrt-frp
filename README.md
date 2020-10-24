@@ -18,6 +18,21 @@ opkg install frps_*.ipk
 ```
 
 安装完毕，你可以在 `/usr/bin` 目录下找到对应的二进制文件。
+启动停止等脚本为 `/etc/init.d/frpc`，如下:
+
+```
+root@OpenWrt:~# /etc/init.d/frpc 
+Syntax: /etc/init.d/frpc [command]
+Available commands:
+        start   Start the service
+        stop    Stop the service
+        restart Restart the service
+        reload  Reload configuration files (or restart if service does not implement reload)
+        enable  Enable service autostart
+        disable Disable service autostart
+
+```
+
 
 获取 Luci 请访问：[kuoruan/luci-app-frpc](https://github.com/kuoruan/luci-app-frpc)
 
