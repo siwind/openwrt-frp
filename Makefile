@@ -54,6 +54,9 @@ define frp/templates
 
 	$$(INSTALL_DIR) $$(1)/usr/bin
 	$$(INSTALL_BIN) $$(PKG_INSTALL_DIR)/usr/bin/$(1) $$(1)/usr/bin/
+	$$(INSTALL_DIR) $$(1)/etc
+	$$(INSTALL_DIR) $$(1)/etc/init.d
+	$$(INSTALL_BIN) ./files/frpc $$(1)/etc/init.d/frpc
   endef
 endef
 
