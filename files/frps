@@ -7,29 +7,29 @@ CONF=/etc/frps.ini
 PIDFILE=/tmp/frps.pid
 
 getpid(){
-        echo `pidof frpc`
+        echo `pidof frps`
 }
 
 start(){
         if [ ! -f "$PIDFILE" ]; then
                 /usr/bin/frps -c $CONF >/dev/null 2>&1 &
                 sleep 3s
-                pid=`pidof frpc`
+                pid=`pidof frps`
                 echo $pid > $PIDFILE
-                echo "Frpc has started."
+                echo "Frps has started."
         else
-                echo "Frpc has already started."
+                echo "Frps has already started."
         fi
 }
 
 stop(){
         if [ ! -f "$PIDFILE" ]; then
-                echo "Frpc is not running."
+                echo "Frps is not running."
         else
                 pid=`cat $PIDFILE`
                 kill $pid
                 rm -f $PIDFILE
-                echo "Frpc has stopped."
+                echo "Frps has stopped."
         fi
         rm -f $PIDFILE
 }
@@ -38,6 +38,6 @@ restart(){
         stop
         sleep 3 
         start
-        echo "Frpc has restarted."
+        echo "Frps has restarted."
 }
 
